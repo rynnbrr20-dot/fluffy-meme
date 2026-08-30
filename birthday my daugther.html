@@ -220,8 +220,8 @@
 </div>
 
     <div id="lovePage" class="container" style="display: none;">
-        <audio id="birthdayMusic" loop>
-    <source src="birthday.mp3" type="audio/mpeg">
+       <audio id="birthdayMusic" loop preload="auto">
+    <source src="./birthday.mp3" type="audio/mpeg">
 </audio>
 
         <div class="heart">❤️</div>
@@ -356,23 +356,12 @@ function noAnswer() {
     function yesAnswer() {
     document.getElementById("questionPage").style.display = "none";
     document.getElementById("lovePage").style.display = "block";
-     const music = document.getElementById("birthdayMusic");
-    function yesAnswer() {
-    document.getElementById("questionPage").style.display = "none";
-    document.getElementById("lovePage").style.display = "block";
 
     const music = document.getElementById("birthdayMusic");
 
-    music.play().catch(error => {
-        alert("اضغط OK باش تبدأ الموسيقى ❤️");
-        music.play();
-    });
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-}
+    music.currentTime = 0;
+    music.volume = 1;
+    music.play();
 
     window.scrollTo({
         top: 0,
