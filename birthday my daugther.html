@@ -357,7 +357,22 @@ function noAnswer() {
     document.getElementById("questionPage").style.display = "none";
     document.getElementById("lovePage").style.display = "block";
      const music = document.getElementById("birthdayMusic");
-    music.play();
+    function yesAnswer() {
+    document.getElementById("questionPage").style.display = "none";
+    document.getElementById("lovePage").style.display = "block";
+
+    const music = document.getElementById("birthdayMusic");
+
+    music.play().catch(error => {
+        alert("اضغط OK باش تبدأ الموسيقى ❤️");
+        music.play();
+    });
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
 
     window.scrollTo({
         top: 0,
