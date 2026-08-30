@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Habibty ❤️</title>
+
+    <style>.qr-section {
+        text-align: center;
+        margin: 30px auto;
+    }
+    .qr-section h2 {
+        color: white;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+#qrcode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+}
+
+#qrcode img {
+    margin: auto;
+    border-radius: 20px;
+}
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .heart {
+            font-size: 70px;
+            animation: beat 1s infinite;
+        }
+
+        .message {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 25px;
+            line-height: 2;
+            font-size: 18px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .love {
+            font-size: 25px;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+
+        @keyframes beat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            background: white;
+            color: #ff4f81;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+     .gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    max-width: 1000px;
+    margin: 50px auto;
+    align-items: center;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 40px auto;
+}
+
+.gallery img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.gallery img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Zoom */
+.gallery img.zoomed {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    width: auto !important;
+    height: 80vh !important;
+    max-width: 90vw;
+    object-fit: contain !important;
+    z-index: 1000;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+}
+/* 💕 Floating Hearts */
+
+.floating-heart {
+    position: fixed;
+    bottom: -40px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: flyHeart 5s linear forwards;
+    filter: drop-shadow(0 0 5px rgba(255, 100, 150, 0.5));
+}
+
+@keyframes flyHeart {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-50vh) scale(1.2) rotate(20deg);
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translateY(-110vh) scale(1.8) rotate(-25deg);
+        opacity: 0;
+    }
+}
+    </style>
+</head>
+<body><div class="qr-section">
+    <h2>Scan me ❤️</h2>
+
+    <div id="qrcode"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script>
+    new QRCode(document.getElementById("qrcode"), {
+      text: "https://your-birthdaybaby-website.com",
+        width: 220,
+        height: 220,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+    });
+</script>
+    <div id="questionPage">
+
+    <div class="question-content">
+
+        <div class="big-heart">❤️</div>
+
+        <h1>تحبيني؟ 🥺❤️</h1>
+
+        <p>اختاري إجابة واحدة فقط 😏</p>
+
+        <div class="answer-buttons">
+
+            <button id="yesBtn" onclick="yesAnswer()">
+                YES ❤️
+            </button>
+
+            <button id="noBtn" onclick="noAnswer()">
+                NO 😏
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <div id="lovePage" class="container" style="display: none;">
+        <audio id="birthdayMusic" loop>
+    <source src="music/birthday.mp3" type="audio/mpeg">
+</audio>
+
+        <div class="heart">❤️</div>
+
+        <h1>Happy Birthday, Habibty 🎂❤️</h1>
+
+        <div class="message">
+
+            <h2>إلى حبيبتي ❤️</h2>
+
+            <p>
+                في نهار عيد ميلادك، حبيت نقلك حاجة يمكن ما نعرفش نقولها
+                كل يوم بالطريقة اللي تستحقها...
+            </p>
+
+            <p>
+                إنتِ موش مجرد إنسانة دخلت حياتي ومرت منها،
+                إنتِ إنسانة خلات عندها مكان خاص في قلبي،
+                مكان ما يشبه حتى مكان آخر. ❤️
+            </p>
+
+            <p>
+                من وقت اللي عرفتك، وليت نلاحظ قداش وجود شخص واحد
+                ينجم يبدّل برشا حاجات في حياة إنسان.
+                ضحكتك تنجم تبدّل نهاري، كلامك ينجم يطمنّي،
+                ووجودك وحدو ينجم يخليني نحس اللي الدنيا مازالت
+                فيها حاجات حلوة تستاهل نعيشها.
+            </p>
+
+            <p>
+                نحب فيك تفاصيل يمكن إنتِ حتى ما تعطيهمش أهمية...
+                نحب طريقتك، ضحكتك، كلامك، وحتى اللحظات اللي تسكتي فيها.
+                نحب الإنسانة اللي إنتِ عليها، موش الصورة المثالية
+                اللي الناس تحب تشوفها.
+            </p>
+
+            <p>
+                وأكثر حاجة نحبها فيك، إنك خليتيني نحس بإحساس جميل وصادق.
+                إحساس يخليني نحب نشاركك أفكاري، أيامي، فرحتي وحتى مخاوفي.
+            </p>
+
+            <p>
+                في عيد ميلادك، نتمنالك راحة البال،
+                قلب مرتاح، أيام حلوة، وأشخاص يعرفوا قيمتك
+                وما يخلوكش تشكي لحظة في روحك.
+            </p>
+
+            <p>
+                نتمنى كل حلم في قلبك يلقى طريقه ليك.
+                ونتمنى كل دمعة نزلت من عينيك تتعوض بآلاف الضحكات. ❤️
+            </p>
+
+            <p>
+                يمكن ما نعرفش شنوّة باش يصير غدوة،
+                وما نقدرش نوعدك بكل شيء في الدنيا...
+                أما نقدر نقلك حاجة من قلبي:
+            </p>
+
+            <h2>وجودك يعنيلي برشا. ❤️</h2>
+
+            <p>
+                نحب نضحك معاك، نخلق معاك ذكريات،
+                نعيش معاك أيام بسيطة لكن معناها كبير،
+                ونرجع بعد سنين نتفكرهم ونقول:
+                يا ريت الأيام ترجع للحظة هذي.
+            </p>
+
+            <p>
+                حبيبتي، اليوم هو نهارك إنتِ.
+                نهار الإنسانة اللي عندها مكانة خاصة في قلبي.
+            </p>
+
+            <div class="love">
+                ❤️ I love you more than words can explain. ❤️♾️
+                <br><br>
+                forever habibty sa8lontyyy ❤️
+                <br>
+                mmmmmmuuuuuuuuuuuuuuuuuuuuuuuhhhhhhhhhhh
+                <br>
+                nahwkkk ya roh rooh ❤️
+                <br>
+                n3ch9k 3llle5rrrr ♾️
+            </div>
+
+        </div>
+       <div class="gallery">
+    <img src="images/photo 1 (1).jpg" alt="Photo 1">
+    <img src="images/photo 1 (2).jpg" alt="Photo 2">
+    <img src="images/photo 1 (3).jpg" alt="Photo 3">
+    <img src="images/photo 1 (4).jpg" alt="Photo 4">
+    <img src="images/photo 1 (5).jpg" alt="Photo 5">
+    <img src="images/photo 1 (6).jpg" alt="Photo 6">
+    <img src="images/photo 1 (7).jpg" alt="Photo 7">
+    <img src="images/photo 1 (8).jpg" alt="Photo 8">
+    <img src="images/photo 1 (9).jpg" alt="Photo 9">
+    <img src="images/photo 1 (10).jpg" alt="Photo 10">
+    <img src="images/photo 1 (11).jpg" alt="Photo 11">
+    <img src="images/photo 1 (12).jpg" alt="Photo 12">
+    <img src="images/photo 1 (13).jpg" alt="Photo 13">
+    <img src="images/photo 1 (14).jpg" alt="Photo 14">
+    <img src="images/photo 1 (15).jpg" alt="Photo 15">
+    <img src="images/photo 1 (16).jpg" alt="Photo 16">
+    <img src="images/photo 1 (17).jpg" alt="Photo 17">
+    <img src="images/photo 1 (18).jpg" alt="Photo 18">
+    <img src="images/photo 1 (19).jpg" alt="Photo 19">
+    <img src="images/photo 1 (20).jpg" alt="Photo 20">
+    <img src="images/photo 1 (21).jpg" alt="Photo 21">
+    <img src="images/photo 1 (22).jpg" alt="Photo 22">
+    <img src="images/photo 1 (23).jpg" alt="Photo 23">
+    <img src="images/photo 1 (24).jpg" alt="Photo 24">
+    <img src="images/photo 1 (25).jpg" alt="Photo 25">
+    <img src="images/photo 1 (26).jpg" alt="Photo 26">
+    <img src="images/photo 1 (27).jpg" alt="Photo 27">
+    <img src="images/photo 1 (28).jpg" alt="Photo 28">
+    <img src="images/photo 1 (29).jpg" alt="Photo 29">
+    <img src="images/photo 1 (30).jpg" alt="Photo 30">
+    <img src="images/photo 1 (31).jpg" alt="Photo 31">
+    </div>
+    </div>
+    
+</div>
+    <script>
+        let yesSize = 1;
+
+function noAnswer() {
+    yesSize += 0.15;
+
+    const yesBtn = document.getElementById("yesBtn");
+
+    yesBtn.style.transform = `scale(${yesSize})`;
+}
+    function yesAnswer() {
+    document.getElementById("questionPage").style.display = "none";
+    document.getElementById("lovePage").style.display = "block";
+     const music = document.getElementById("birthdayMusic");
+    music.play();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+        document.querySelectorAll(".gallery img").forEach(function(img) {
+    img.addEventListener("click", function() {
+        this.classList.toggle("zoomed");
+    });
+});
+function createHeart() {
+    const heart = document.createElement("div");
+
+    const hearts = [
+        "❤️", "🩷", "🧡", "💛", "💚",
+        "💙", "💜", "💕", "💖", "💗",
+        "💓", "💘", "💝"
+    ];
+
+    heart.className = "floating-heart";
+
+    // اختيار قلب عشوائي
+    heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+
+    // مكان عشوائي
+    heart.style.left = Math.random() * 100 + "vw";
+
+    // حجم عشوائي
+    heart.style.fontSize = (15 + Math.random() * 35) + "px";
+
+    // سرعة عشوائية
+    heart.style.animationDuration = (3 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    // حذف القلب بعد انتهاء الحركة
+    setTimeout(() => {
+        heart.remove();
+    }, 8000);
+}
+
+// قلب جديد كل 400ms
+setInterval(createHeart, 400);
+    </script>
+
+</body>
+</html>
